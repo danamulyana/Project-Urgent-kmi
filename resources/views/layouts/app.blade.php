@@ -53,6 +53,7 @@
                 <div class="content">
                     @livewire('components.topbar')
                     {{ $slot }}
+                    @livewire('components.footer')
                 </div>
             </div>
         </main>

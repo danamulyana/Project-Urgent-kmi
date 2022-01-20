@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
     {
         User::insert([
             'intiddepartement' => 6,
+            'intlevel' => 1,
             'txtnik' => '123314',
             'txtusername' => 'danamulyana',
             'txtfullname' => 'Dana Mulyana',

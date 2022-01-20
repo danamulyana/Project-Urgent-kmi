@@ -54,7 +54,7 @@
                             @error('namabarang.0')<span class="text-danger">{{ $message }}</span>@enderror
                           </td>
                           <td>
-                            <input class="form-control form-control-sm" id="jumlah" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang.0" />
+                            <input class="form-control form-control-sm" id="jumlah" type="number" min="1" placeholder="Jumlah" wire:model="Jumlahbarang.0" />
                             @error('Jumlahbarang.0')<span class="text-danger">{{ $message }}</span>@enderror
                           </td>
                           <td>
@@ -81,7 +81,7 @@
                             @error('namabarang.'.$item)<span class="text-danger">{{ $message }}</span>@enderror
                           </td>
                           <td>
-                            <input class="form-control form-control-sm" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang.{{ $item }}" />
+                            <input class="form-control form-control-sm" type="number" min="1" placeholder="Jumlah" wire:model="Jumlahbarang.{{ $item }}" />
                             @error('Jumlahbarang.'.$item)<span class="text-danger">{{ $message }}</span>@enderror
                           </td>
                           <td>

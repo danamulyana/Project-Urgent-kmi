@@ -13,4 +13,10 @@ class trRequestfile extends Model
     const UPDATED_AT = 'dtmupdatedat';
     protected $primaryKey = 'intidrequestfile';
 
+    protected $fillable = [
+        'txtnamafile',
+        'txtextension',
+        'txtfilepath',
+    ];
+
 }

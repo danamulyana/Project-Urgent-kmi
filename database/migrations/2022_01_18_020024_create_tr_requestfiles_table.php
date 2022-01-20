@@ -15,7 +15,9 @@ class CreateTrRequestfilesTable extends Migration
     {
         Schema::create('tr_requestfiles', function (Blueprint $table) {
             $table->id('intidrequestfile');
+            $table->foreignId('intidrequest')->constrained('m_requests','intidrequest')->onDelete('cascade');
             $table->string('txtnamafile');
+            $table->string('txtsize');
             $table->string('txtextension');
             $table->string('txtfilepath');
             $table->timestamps();

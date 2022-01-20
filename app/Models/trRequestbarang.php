@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class trRequestbarang extends Model
 {
@@ -14,6 +15,14 @@ class trRequestbarang extends Model
     protected $primaryKey = 'intidrequestbarang';
 
     protected $fillable = [
-        
+        'txtnamabarang',
+        'txtjumlah',
+        'txtsatuan',
+        'txtketerangan'
     ];
+
+    public function request() : BelongsTo
+    {
+        return $this->belongsTo(mRequest::class,'intidrequest');
+    }
 }

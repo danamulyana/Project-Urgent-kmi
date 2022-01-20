@@ -4,6 +4,7 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Master\Departement;
 use App\Http\Livewire\Master\Karyawan;
 use App\Http\Livewire\Master\Uom;
+use App\Http\Livewire\Purchase\PurchaseDetail;
 use App\Http\Livewire\Purchase\PurchaseList;
 use App\Http\Livewire\Purchase\PurchaseNew;
 use Illuminate\Support\Facades\Route;
@@ -30,5 +31,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('purchase')->name('purchase.')->group(function(){
         Route::get('/', PurchaseList::class)->name('list');
         Route::get('/new', PurchaseNew::class)->name('new');
+        Route::get('/detail/{slug}', PurchaseDetail::class)->name('detail');
     });
 });

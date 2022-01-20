@@ -19,25 +19,31 @@
               <thead class="bg-200 text-900">
                 <tr>
                   <th scope="col">No Dok</th>
-                  <th scope="col">Email</th>
+                  <th scope="col">No PR/WO</th>
+                  <th scope="col">Reason</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Last update</th>
                   <th class="text-end" scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                @forelse ($data as $d)
+                @forelse ($data as $key => $d)
                 <tr>
-                  <td>FR/BDA-PU/FPU/{{ $i + 1 }}</td>
-                  <td>zaine@example.com</td>
-                  <td class="text-end">
+                  <td><a href="{{ route('purchase.detail',[$d->txtslug]) }}" class="text-600">{{ $d->txtnorequest }}</a></td>
+                  <td class="text-600">{{ $d->txtmumberpr }}</td>
+                  <td class="text-600">{{ $d->txtreason }}</td>
+                  <td class="text-600"><span class="badge rounded-pill {{ $d->txtstatus == 'pending' ? 'badge-soft-warning' : ($d->txtstatus == 'solved' ? 'badge-soft-success' : 'badge-soft-danger') }}">{{ $d->txtstatus }}</span></td>
+                  <td class="text-600">{{ $d->dtmupdatedat->diffforhumans() }}</td>
+                  <td class="text-600 text-end">
                     <div>
                       <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><span class="text-500 fas fa-edit"></span></button>
-                      <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><span class="text-500 fas fa-trash-alt"></span></button>
+                      <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Close"><span class="text-500 fas fa-trash-alt"></span></button>
                     </div>
                   </td>
                 </tr>
                 @empty
                   <tr>
-                    <td colspan="3" class="text-center">
+                    <td colspan="6" class="text-center">
                         <img class="img-fluid" src="{{ asset('assets/img/icons/spot-illustrations/21.png') }}" alt="No Data Found" width="200">
                         <span class="d-block">Data Not Found!</span>
                       </div>
@@ -49,7 +55,7 @@
           </div>
       </div>
       <div class="card-footer">
-        
+        {{ $data->links('livewire::bootstrap') }}
       </div>
     </div>
 </div>
