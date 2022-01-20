@@ -1,0 +1,52 @@
+{
+  "rtl": true,
+  "dir": {
+    "dev": "public",
+    "prod": "build"
+  },
+  "style": {
+    "src": "resources/scss/**/*.scss",
+    "dest": "assets/css"
+  },
+  "script": {
+    "src": [
+      "resources/js/utils.js",
+      "resources/js/detector.js",
+      "resources/js/node.js",
+      "resources/js/**/!(utils | detector | node)*.js",
+      "!resources/js/emoji-button.js",
+      "!resources/js/charts/echarts/examples/*.js",
+      "!resources/js/echarts-example.js",
+      "!resources/js/flatpickr.js",
+      "!resources/js/config.js",
+      "!resources/js/theme.js",
+      "resources/js/theme.js"
+    ],
+    "configNavbar": "resources/js/config.js",
+    "echartsExample": [
+      "resources/js/utils.js",
+      "resources/js/charts/echarts/echarts-utils.js",
+      "resources/js/charts/echarts/examples/*.js",
+      "!resources/js/echarts-example.js",
+      "resources/js/echarts-example.js"
+    ],
+    "dest": "assets/js"
+  },
+  "product": {
+    "paths": [
+      "gulp/**/*.*",
+      "public/**/*.*",
+      "resources/**/*.*",
+      ".babelrc",
+      ".eslintrc",
+      ".gitignore",
+      ".prettierignore",
+      "gulpfile.js",
+      "package-lock.json",
+      "package.json",
+      "README.md",
+      "vendors.json"
+    ]
+  },
+  "watch": ["assets/img", "assets/data", "assets/video", "vendors"]
+}

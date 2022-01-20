@@ -1,0 +1,29 @@
+.file-preview, .file-preview * {
+    box-sizing: border-box;
+}
+.file-preview.file-clickable * {
+    cursor: default;
+}
+.file-preview{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 16px;
+    min-height: auto;
+}
+.file-preview .media:first-child{
+    margin-top: 1.8rem
+}
+.file-preview .file-image{
+    border-radius: 0.25rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    margin-right: 1rem;
+    border: 1px solid var(--falcon-border-color);
+    overflow: hidden;
+    position: relative;
+    display: block;
+    z-index: 10;
+}
