@@ -17,7 +17,7 @@
               <a class="notification notification-flush notification-unread" href="#!">
                 <div class="notification-avatar">
                   <div class="avatar avatar-2xl me-3">
-                    <img class="rounded-circle" src="assets/img/team/1-thumb.png" alt="" />
+                    <img class="rounded-circle" src="{{ asset('assets/img/team/1-thumb.png') }}" alt="" />
 
                   </div>
                 </div>
@@ -49,7 +49,7 @@
               <a class="notification notification-flush" href="#!">
                 <div class="notification-avatar">
                   <div class="avatar avatar-2xl me-3">
-                    <img class="rounded-circle" src="assets/img/icons/weather-sm.jpg" alt="" />
+                    <img class="rounded-circle" src="{{ asset('assets/img/icons/weather-sm.jpg') }}" alt="" />
 
                   </div>
                 </div>
@@ -65,7 +65,7 @@
               <a class="border-bottom-0 notification-unread  notification notification-flush" href="#!">
                 <div class="notification-avatar">
                   <div class="avatar avatar-xl me-3">
-                    <img class="rounded-circle" src="assets/img/logos/oxford.png" alt="" />
+                    <img class="rounded-circle" src="{{ asset('assets/img/logos/oxford.png') }}" alt="" />
 
                   </div>
                 </div>
@@ -81,7 +81,7 @@
               <a class="border-bottom-0 notification notification-flush" href="#!">
                 <div class="notification-avatar">
                   <div class="avatar avatar-xl me-3">
-                    <img class="rounded-circle" src="assets/img/team/10.jpg" alt="" />
+                    <img class="rounded-circle" src="{{ asset('assets/img/team/10.jpg') }}" alt="" />
 
                   </div>
                 </div>

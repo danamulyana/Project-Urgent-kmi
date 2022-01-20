@@ -13,4 +13,7 @@ class trRequestbarang extends Model
     const UPDATED_AT = 'dtmupdatedat';
     protected $primaryKey = 'intidrequestbarang';
 
+    protected $fillable = [
+        
+    ];
 }

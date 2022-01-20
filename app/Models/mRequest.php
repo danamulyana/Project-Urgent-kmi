@@ -13,4 +13,13 @@ class mRequest extends Model
     const UPDATED_AT = 'dtmupdatedat';
     protected $primaryKey = 'intidrequest';
 
+    protected $fillable = [
+        'txtslug',
+        'txtnorequest',
+        'intiduser',
+        'txtmumberpr',
+        'txtreason',
+        'dtmtanggalkebutuhan',
+        'intalur',
+    ];
 }

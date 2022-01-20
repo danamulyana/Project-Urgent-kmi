@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Master\Departement;
 use App\Http\Livewire\Master\Karyawan;
 use App\Http\Livewire\Master\Uom;
 use App\Http\Livewire\Purchase\PurchaseList;
@@ -22,7 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::prefix('m')->name('master.')->group(function(){
         Route::get('/user', Karyawan::class)->name('user');
-        Route::get('/departement', function(){return 'masuk';})->name('departement');
+        Route::get('/departement', Departement::class)->name('departement');
         Route::get('/uom', Uom::class)->name('uom');
     });
 

@@ -51,7 +51,7 @@
           </div>
       </div>
       <div class="card-footer">
-        {{ $data->links('pagination::bootstrap-4') }}
+        {{ $data->links('livewire::bootstrap') }}
       </div>
     </div>
 </div>

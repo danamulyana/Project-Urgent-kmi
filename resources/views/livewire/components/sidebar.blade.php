@@ -50,6 +50,15 @@
                 <span class="nav-link-text ps-1">Karyawan</span>
               </div>
             </a>
+            <!-- departement pages-->
+            <a class="nav-link {{  request()->routeIs('master.departement') ? 'active' : '' }}" href="{{ route('master.departement') }}" role="button" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                  <span class="fas fa-house-user"></span>
+                </span>
+                <span class="nav-link-text ps-1">Departement</span>
+              </div>
+            </a>
             <!-- Uom pages-->
             <a class="nav-link {{  request()->routeIs('master.uom') ? 'active' : '' }}" href="{{ route('master.uom') }}" role="button" aria-expanded="false">
               <div class="d-flex align-items-center">

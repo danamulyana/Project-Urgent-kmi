@@ -25,71 +25,18 @@
                 <label class="col-sm-3 col-form-label" for="nopr">Nomor PR / WO</label>
                 <div class="col-sm-9">
                   <input class="form-control" id="nopr" type="text" placeholder="Nomor PR / WO" wire:model="nomorpr" />
+                  @error('nomorpr')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="row mb-4">
                 <label class="col-sm-3 col-form-label" for="tanggaldibutuhkan">Tanggal di butuhkan</label>
                 <div class="col-sm-9">
                   <input class="form-control" id="tanggaldibutuhkan" type="date" placeholder="Tanggal di butuhkan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" wire:model="tanggalkebutuhan" />
+                  @error('tanggalkebutuhan')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="row mb-4">
-                <div class="container ">
-                  <div class="row p-3 bg-soft-primary">
-                    <div class="col">Nama Barang</div>
-                    <div class="col">Jumlah</div>
-                    <div class="col">Satuan</div>
-                    <div class="col">Keterangan</div>
-                    <div class="col"></div>
-                  </div>
-                  <div class="row p-2">
-                    <div class="col">
-                      <input class="form-control form-control-sm" id="namabarang" type="text" placeholder="Nama Barang" wire:model="namabarang" />
-                    </div>
-                    <div class="col">
-                      <input class="form-control form-control-sm" id="jumlah" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang" />
-                    </div>
-                    <div class="col">
-                      <input class="form-control form-control-sm" id="satuan" type="text" placeholder="Satuan" list="satuanList" wire:model="satuanbarang" />
-                      <datalist id="satuanList">
-                          @foreach ($uom as $i)
-                          <option value="{{ $i->txtcode }}"> </option>
-                          @endforeach
-                      </datalist>
-                    </div>
-                    <div class="col">
-                      <textarea wire:ignore.self class="form-control form-control-sm" rows="1" id="keterangan" type="text" placeholder="Keterangan" wire:model="keteranganbarang" ></textarea>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-sm btn-primary me-1 mb-1"  wire:click.prevent="add({{$i}})">Add</button>
-                    </div>
-                  </div>
-                  @foreach ($inputs as $item)
-                  <div class="row p-2">
-                    <div class="col">
-                      <input class="form-control form-control-sm" id="namabarang" type="text" placeholder="Nama Barang" wire:model="namabarang" />
-                    </div>
-                    <div class="col">
-                      <input class="form-control form-control-sm" id="jumlah" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang" />
-                    </div>
-                    <div class="col">
-                      <input class="form-control form-control-sm" id="satuan" type="text" placeholder="Satuan" list="satuanList" wire:model="satuanbarang" />
-                      <datalist id="satuanList">
-                          @foreach ($uom as $i)
-                          <option value="{{ $i->txtcode }}"> </option>
-                          @endforeach
-                      </datalist>
-                    </div>
-                    <div class="col">
-                      <textarea wire:ignore.self class="form-control form-control-sm" rows="1" id="keterangan" type="text" placeholder="Keterangan" wire:model="keteranganbarang" ></textarea>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-sm btn-danger me-1 mb-1"  wire:click.prevent="remove({{$i}})">remove</button>
-                    </div>
-                  </div>
-                  @endforeach
-                </div>
-                {{-- <div class="table-responsive scrollbar">
+                <div class="table-responsive scrollbar">
                     <table class="table table-striped overflow-hidden">
                       <thead class="bg-soft-primary">
                         <tr class="btn-reveal-trigger">
@@ -100,16 +47,19 @@
                           <th scope="col"></th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody >
                         <tr class="btn-reveal-trigger">
-                            <td>
-                              <input wire:ignore.self class="form-control form-control-sm" id="namabarang" type="text" placeholder="Nama Barang" wire:model="namabarang" />
-                            </td>
                           <td>
-                            <input wire:ignore.self class="form-control form-control-sm" id="jumlah" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang" />
+                            <input class="form-control form-control-sm" id="namabarang" type="text" placeholder="Nama Barang" wire:model="namabarang.0" />
+                            @error('namabarang.0')<span class="text-danger">{{ $message }}</span>@enderror
                           </td>
                           <td>
-                            <input wire:ignore.self class="form-control form-control-sm" id="satuan" type="text" placeholder="Satuan" list="satuanList" wire:model="satuanbarang" />
+                            <input class="form-control form-control-sm" id="jumlah" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang.0" />
+                            @error('Jumlahbarang.0')<span class="text-danger">{{ $message }}</span>@enderror
+                          </td>
+                          <td>
+                            <input class="form-control form-control-sm" id="satuan" type="text" placeholder="Satuan" list="satuanList" wire:model="satuanbarang.0" />
+                            @error('satuanbarang.0')<span class="text-danger">{{ $message }}</span>@enderror
                             <datalist id="satuanList">
                                 @foreach ($uom as $i)
                                 <option value="{{ $i->txtcode }}"> </option>
@@ -117,39 +67,44 @@
                             </datalist>
                           </td>
                           <td>
-                            <textarea wire:ignore.self class="form-control form-control-sm" rows="1" id="keterangan" type="text" placeholder="Keterangan" wire:model="keteranganbarang" ></textarea>
+                            <textarea class="form-control form-control-sm" rows="1" id="keterangan" type="text" placeholder="Keterangan" wire:model="keteranganbarang.0" ></textarea>
+                            @error('keteranganbarang.0')<span class="text-danger">{{ $message }}</span>@enderror
                           </td>
                           <td>
-                              <button class="btn btn-sm btn-primary me-1 mb-1"  wire:click.prevent="add({{$i}})">Add</button>
+                              <button class="btn btn-sm btn-primary me-1 mb-1"  wire:click.prevent="addinputs({{$inde}})">Add</button>
                           </td>
                         </tr>
-                        @foreach ($inputs as $item)
+                        @foreach ($inputs as $key => $item)
                         <tr class="btn-reveal-trigger">
                           <td>
-                            <input wire:ignore.self class="form-control form-control-sm" id="namabarang" type="text" placeholder="Nama Barang" wire:model="namabarang" />
+                            <input class="form-control form-control-sm" type="text" placeholder="Nama Barang" wire:model="namabarang.{{ $item }}" />
+                            @error('namabarang.'.$item)<span class="text-danger">{{ $message }}</span>@enderror
                           </td>
-                        <td>
-                          <input wire:ignore.self class="form-control form-control-sm" id="jumlah" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang" />
-                        </td>
-                        <td>
-                          <input wire:ignore.self class="form-control form-control-sm" id="satuan" type="text" placeholder="Satuan" list="satuanList" wire:model="satuanbarang" />
-                          <datalist id="satuanList">
-                              @foreach ($uom as $i)
-                              <option value="{{ $i->txtcode }}"> </option>
-                              @endforeach
-                          </datalist>
-                        </td>
-                        <td>
-                          <textarea wire:ignore.self class="form-control form-control-sm" rows="1" id="keterangan" type="text" placeholder="Keterangan" wire:model="keteranganbarang" ></textarea>
-                        </td>
-                        <td>
-                            <button class="btn btn-sm btn-primary me-1 mb-1"  wire:click.prevent="add({{$i}})">Add</button>
-                        </td>
-                      </tr>
+                          <td>
+                            <input class="form-control form-control-sm" type="number" min="0" placeholder="Jumlah" wire:model="Jumlahbarang.{{ $item }}" />
+                            @error('Jumlahbarang.'.$item)<span class="text-danger">{{ $message }}</span>@enderror
+                          </td>
+                          <td>
+                            <input class="form-control form-control-sm" type="text" placeholder="Satuan" list="satuanList" wire:model="satuanbarang.{{ $item }}" />
+                            @error('satuanbarang.'.$item)<span class="text-danger">{{ $message }}</span>@enderror
+                            <datalist id="satuanList">
+                                @foreach ($uom as $i)
+                                <option value="{{ $i->txtcode }}"> </option>
+                                @endforeach
+                            </datalist>
+                          </td>
+                          <td>
+                            <textarea class="form-control form-control-sm" rows="1" type="text" placeholder="Keterangan" wire:model="keteranganbarang.{{ $item }}" ></textarea>
+                            @error('keteranganbarang.'.$item)<span class="text-danger">{{ $message }}</span>@enderror
+                          </td>
+                          <td>
+                              <button class="btn btn-sm btn-danger me-1 mb-1"  wire:click.prevent="removeinputs({{$key}})">remove</button>
+                          </td>
+                        </tr>
                         @endforeach
                       </tbody>
                     </table>
-                </div> --}}
+                </div>
             </div>
             <div class="row mb-4">
                 <label class="col-sm-3 col-form-label" for="reason">Reason</label>
@@ -170,6 +125,7 @@
                         <input class="form-check-input" id="sefety" type="radio" name="reason" value="Sefety K3" wire:model="reason" />
                         <label class="form-check-label" for="sefety">Sefety K3</label>
                     </div>        
+                    @error('reason')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="row">

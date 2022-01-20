@@ -2,23 +2,24 @@
 
 namespace App\Http\Livewire\Master;
 
-use App\Models\mUom;
+use App\Models\mDepartement;
 use Livewire\Component;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\WithPagination;
 
-class Uom extends Component
+class Departement extends Component
 {
     use LivewireAlert;
     use WithPagination;
-
+    protected $paginationTheme = 'bootstrap';
+    
     public $searchTerms;
-    public $name, $code, $edit, $edit_id;
+    public $name, $edit, $edit_id;
+
 
     public function resetInputFields()
     {
         $this->name = "";
-        $this->code = "";
         $this->edit = "";
         $this->edit_id = "";
     }
@@ -27,15 +28,12 @@ class Uom extends Component
     {
         $this->validate([
             'name' => 'required|string',
-            'code' => 'required|string'
         ],[
             'name.required' => 'Nama Harus di isi.',
-            'code.required' => 'Code Harus di isi.',
         ]);
 
-        $data = new mUom();
-        $data->txtcode = $this->code;
-        $data->txtname = $this->name;
+        $data = new mDepartement();
+        $data->txtnamadepartement = $this->name;
         $data->save();
         $this->resetInputFields();
         $this->emit('hideModal',['id' => 'addModal']);
@@ -49,9 +47,9 @@ class Uom extends Component
 
     public function edit($id)
     {
-        $data = mUom::find($id);
-        $this->edit_id = $data->intiduoms;
-        $data = ['code' => $data->txtcode,'name' => $data->txtname];
+        $data = mDepartement::find($id);
+        $this->edit_id = $data->intiddepartement;
+        $data = ['name' => $data->txtnamadepartement];
         $this->edit = $data;
     }
 
@@ -59,15 +57,12 @@ class Uom extends Component
     {
         $this->validate([
             'edit.name' => 'required|string',
-            'edit.code' => 'required|string'
         ],[
             'edit.name.required' => 'Nama Harus di isi.',
-            'edit.code.required' => 'Code Harus di isi.',
         ]);
         
-        $data = mUom::find($this->edit_id);
-        $data->txtcode = $this->edit['code'];
-        $data->txtname = $this->edit['name'];
+        $data = mDepartement::find($this->edit_id);
+        $data->txtnamadepartement = $this->edit['name'];
         $data->save();
         $this->resetInputFields();
         $this->emit('hideModal',['id' => 'EditModal']);
@@ -81,7 +76,7 @@ class Uom extends Component
 
     public function delete($id)
     {
-        $data = mUom::find($id);
+        $data = mDepartement::find($id);
         $data->delete();
         $this->resetInputFields();
         $this->alert('success', 'Selamat Data berhasil di Hapus', [
@@ -94,14 +89,9 @@ class Uom extends Component
 
     public function render()
     {
-        return view('livewire.master.uom',[
-            'data' => mUom::query()->where('txtcode', 'like', '%'.$this->searchTerms.'%')
-            ->orWhere('txtname','like', '%'.$this->searchTerms.'%')
+        return view('livewire.master.departement',[
+            'data' => mDepartement::query()->where('txtnamadepartement', 'like', '%'.$this->searchTerms.'%')
             ->orderBy('dtmcreatedat', 'desc')->paginate(5),
         ]);
-    }
-    public function updatedSearchTerms()
-    {
-        $this->resetPage();
     }
 }
