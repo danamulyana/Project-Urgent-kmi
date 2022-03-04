@@ -7,7 +7,7 @@
               <div>
                 <h6 class="text-primary fs--1 mb-0">Welcome to </h6>
                 <h4 class="text-primary fw-bold mb-0">Pembelian <span class="text-info fw-medium">URGENT</span></h4>
-              </div><img class="ms-n4 d-md-none d-lg-block" src="../assets/img/illustrations/crm-line-chart.png" alt="" width="150">
+              </div><img class="ms-n4 d-md-none d-lg-block" src="{{ asset('assets/img/illustrations/crm-line-chart.png') }}" alt="" width="150">
             </div>
           </div>
         </div>
@@ -17,12 +17,13 @@
         <div class="col-md-6 col-xxl-3">
           <div class="card h-md-100 ecommerce-card-min-width">
             <div class="card-header pb-0">
-              <h6 class="mb-0 mt-2 d-flex align-items-center">Weekly Sales<span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculated according to last week's sales"><span class="far fa-question-circle" data-fa-transform="shrink-1"></span></span></h6>
+              <h6 class="mb-0 mt-2 d-flex align-items-center">Weekly Request<span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top" title="Calculated according to last week's sales"><span class="far fa-question-circle" data-fa-transform="shrink-1"></span></span></h6>
             </div>
             <div class="card-body d-flex flex-column justify-content-end">
               <div class="row">
                 <div class="col">
-                  <p class="font-sans-serif lh-1 mb-1 fs-4">$47K</p><span class="badge badge-soft-success rounded-pill fs--2">+3.5%</span>
+                  <p class="font-sans-serif lh-1 mb-1 fs-4">1</p>
+                  <span class="badge badge-soft-success rounded-pill fs--2"></span>
                 </div>
                 <div class="col-auto ps-0">
                   <div class="echart-bar-weekly-sales h-100"></div>

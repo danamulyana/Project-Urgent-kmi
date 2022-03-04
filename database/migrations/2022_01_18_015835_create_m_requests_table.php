@@ -21,7 +21,7 @@ class CreateMRequestsTable extends Migration
             $table->string('txtmumberpr');
             $table->string('txtreason');
             $table->string('dtmtanggalkebutuhan');
-            $table->enum('txtstatus',['pending','closed','solved']);
+            $table->enum('txtstatus',['approved by Dept Head','approved by Pu SPV','in process','in process by buyer','rejected by Dept Head','rejected by buyer','rejected by Pu SPV','closed']);
             $table->enum('intalur',[1,2,3,4,5]);
             $table->timestamps();
         });

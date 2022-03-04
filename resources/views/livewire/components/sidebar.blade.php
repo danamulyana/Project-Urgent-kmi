@@ -41,6 +41,7 @@
                 <hr class="mb-0 navbar-vertical-divider" />
               </div>
             </div>
+            @if (Auth::user()->Role->intidlevel == 1)
             <!-- karyawan pages-->
             <a class="nav-link {{  request()->routeIs('master.user') ? 'active' : '' }}" href="{{ route('master.user') }}" role="button" aria-expanded="false">
               <div class="d-flex align-items-center">
@@ -59,15 +60,7 @@
                 <span class="nav-link-text ps-1">Departement</span>
               </div>
             </a>
-            <!-- Uom pages-->
-            <a class="nav-link {{  request()->routeIs('master.uom') ? 'active' : '' }}" href="{{ route('master.uom') }}" role="button" aria-expanded="false">
-              <div class="d-flex align-items-center">
-                <span class="nav-link-icon">
-                  <span class="far fa-list-alt"></span>
-                </span>
-                <span class="nav-link-text ps-1">UOM</span>
-              </div>
-            </a>
+            @endif
             <!-- purchase  pages-->
             <a class="nav-link {{  request()->routeIs('purchase.list') ? 'active' : '' }}" href="{{ route('purchase.list') }}" role="button" aria-expanded="false">
               <div class="d-flex align-items-center">
@@ -78,6 +71,18 @@
                 <span class="ms-2 badge rounded-pill bg-primary"></span>
               </div>
             </a>
+            @if (Auth::user()->Role->intidlevel == 2 || Auth::user()->Role->intidlevel == 3 || Auth::user()->Role->intidlevel == 4)
+            <!-- purchase  pages-->
+            <a class="nav-link {{  request()->routeIs('purchase.approve') ? 'active' : '' }}" href="{{ route('purchase.approve') }}" role="button" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                  <span class="far fa-check-square"></span>
+                </span>
+                <span class="nav-link-text ps-1">Purchase Approve</span>
+                <span class="ms-2 badge rounded-pill bg-primary"></span>
+              </div>
+            </a>
+            @endif
             {{-- <!-- parent pages--><a class="nav-link" href="app/chat.html" role="button" aria-expanded="false">
               <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-comments"></span></span><span class="nav-link-text ps-1">Chat</span>
               </div>

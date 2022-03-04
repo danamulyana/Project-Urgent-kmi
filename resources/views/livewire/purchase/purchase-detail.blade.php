@@ -5,10 +5,10 @@
             <div class="col-md">
               <h5 class="mb-2 mb-md-0">Request #{{ $req->txtnorequest }}</h5>
             </div>
-            <div class="col-auto">
+            {{-- <div class="col-auto">
               <button class="btn btn-falcon-default btn-sm me-1 mb-2 mb-sm-0" type="button"><span class="fas fa-arrow-down me-1"> </span>Download (.pdf)</button>
               <button class="btn btn-falcon-default btn-sm me-1 mb-2 mb-sm-0" type="button"><span class="fas fa-print me-1"> </span>Print</button>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
@@ -34,9 +34,9 @@
                     <p class="fs--1 text-start mb-0">Halaman</p>
                 </div>
                 <div class="m-2">
-                    <p class="fs--1 text-start mb-0">: {{ $req->txtnorequest }}</p>
-                    <p class="fs--1 text-start mb-0">: 01</p>
-                    <p class="fs--1 text-start mb-0">: {{ $req->dtmtanggalkebutuhan }}</p>
+                    <p class="fs--1 text-start mb-0">: FR/BDA-PU/FPU/008</p>
+                    <p class="fs--1 text-start mb-0">: 04</p>
+                    <p class="fs--1 text-start mb-0">: 01 Januari 2022</p>
                     <p class="fs--1 text-start mb-0">: 1 dari 1</p>
                 </div>
             </div>

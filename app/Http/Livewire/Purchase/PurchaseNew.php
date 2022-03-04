@@ -17,7 +17,7 @@ class PurchaseNew extends Component
     use WithFileUploads;
  
     public $nomorpr, $reason, $tanggalkebutuhan;
-    public $namabarang, $Jumlahbarang, $satuanbarang, $keteranganbarang;
+    public $namabarang = [], $Jumlahbarang = [], $satuanbarang = [], $keteranganbarang = [];
     public $files = [];
     public $inputs = [];
     public $inde = 0;
@@ -61,8 +61,8 @@ class PurchaseNew extends Component
 
         $number = mRequest::all()->count();
         $number++;
-        $generate = str_pad($number, 4, "0", STR_PAD_LEFT).'/BDA-PU/FPU/' . Carbon::now()->format('m/Y');
-        $slug = str_pad($number, 4, "0", STR_PAD_LEFT).'-BDA-PU-FPU-' . Carbon::now()->format('m-Y');
+        $generate = 'FPU' . Carbon::now()->format('Y').'-'.Carbon::now()->format('m').'-'.str_pad($number, 4, "0", STR_PAD_LEFT);
+        $slug = 'FPU' . Carbon::now()->format('Y').'-'.Carbon::now()->format('m').'-'.str_pad($number, 4, "0", STR_PAD_LEFT);
 
         $data = new mRequest();
         $data->txtslug = Str::slug($slug);
@@ -71,7 +71,7 @@ class PurchaseNew extends Component
         $data->txtmumberpr = $this->nomorpr;
         $data->txtreason = $this->reason;
         $data->dtmtanggalkebutuhan = $this->tanggalkebutuhan;
-        $data->txtstatus = 'pending';
+        $data->txtstatus = 'in process';
         $data->intalur = 1;
         $data->save();
 
@@ -116,6 +116,10 @@ class PurchaseNew extends Component
         $inde = $index + 1;
         $this->inde = $inde;
         array_push($this->inputs ,$inde);
+        array_push($this->namabarang,'');
+        array_push($this->Jumlahbarang,'');
+        array_push($this->satuanbarang,'');
+        array_push($this->keteranganbarang,'');
     }
  
     public function removeinputs($index)

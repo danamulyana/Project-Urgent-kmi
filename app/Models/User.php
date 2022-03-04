@@ -69,4 +69,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(mDepartement::class,'intiddepartement','intiddepartement');
     }
+
+    public function Role() : BelongsTo
+    {
+        return $this->belongsTo(mLevel::class,'intlevel','intidlevel');
+    }
 }

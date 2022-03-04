@@ -22,4 +22,8 @@ class Karyawan extends Component
                 ->orderBy('dtmcreatedat', 'desc')->paginate(5),
         ]);
     }
+    public function updatedSearchTerms()
+    {
+        $this->resetPage();
+    }
 }

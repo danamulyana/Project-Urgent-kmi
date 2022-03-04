@@ -3,7 +3,7 @@
       <div class="card-header">
         <div class="row flex-between-center">
           <div class="col-auto">
-            <h4 class="mb-0">Purchese Request List</h4>
+            <h4 class="mb-0">Purchase Request List</h4>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
                   <td><a href="{{ route('purchase.detail',[$d->txtslug]) }}" class="text-600">{{ $d->txtnorequest }}</a></td>
                   <td class="text-600">{{ $d->txtmumberpr }}</td>
                   <td class="text-600">{{ $d->txtreason }}</td>
-                  <td class="text-600"><span class="badge rounded-pill {{ $d->txtstatus == 'pending' ? 'badge-soft-warning' : ($d->txtstatus == 'solved' ? 'badge-soft-success' : 'badge-soft-danger') }}">{{ $d->txtstatus }}</span></td>
+                  <td class="text-600"><span class="badge rounded-pill {{ $d->txtstatus == 'in process' ? 'badge-soft-warning' : ($d->txtstatus == 'solved' ? 'badge-soft-success' : 'badge-soft-danger') }}">{{ $d->txtstatus }}</span></td>
                   <td class="text-600">{{ $d->dtmupdatedat->diffforhumans() }}</td>
                   <td class="text-600 text-end">
                     <div>
